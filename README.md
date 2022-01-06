@@ -1,3 +1,17 @@
+# Fix Pay - Integração Twillio
+
+Devido ao Encode a ser utilizado nas mensagens enviadas pelo Twillio tem uma limitação de tamanho. Por exemplo:
+* UCS-2: Máximo 70 caracteres
+* GSM-7: Máximo 160 caracteres
+
+Caso ultrapasse esse limite, a mensage é dividida em mais de 1 mensagem.
+
+Como ele faz a troca automático do encode precisamos garantir que todos os caracteres sejam permitidos pelo GSM-7 para que seja cobrada apenas 1 vez.
+### Links úteis:
+* https://www.twilio.com/blog/2017/03/what-the-heck-is-a-segment.html
+* https://en.wikipedia.org/wiki/GSM_03.38#GSM_7-bit_default_alphabet_and_extension_table_of_3GPP_TS_23.038_.2F_GSM_03.38
+* https://www.twilio.com/docs/glossary/what-sms-character-limit
+
 # twilio-go
 
 A client for accessing the Twilio API with several nice features:
